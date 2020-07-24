@@ -1,5 +1,6 @@
 require "byebug"
 class PolyTreeNode
+   
     def initialize(value)
         @parent = nil
         @children = []
@@ -41,17 +42,27 @@ class PolyTreeNode
         node.parent = nil
     end
     
+    def bfs(target) 
+        # return self if contains target
+        # return nil if value not found
+        
+        
+    end
 
+    def dfs(target)
+        # return self if contains target
+        return self if self == target
+        if !self.children.empty?
+            # self.children.each do |child|
+            #     if child == target
+            #         return child
+            #     end   
+            # end
+            self.children.each {|chi| chi.dfs(target)}
+        end
+        nil 
+    end
 
-    
 end
-
-# old_parent = @parent
-# @parent = grand_parent 
-# #   debugger
-# grand_parent.add_child(self)
-# if  old_parent != nil 
-#    old_parent.remove_child(self)
-# end
 
 
